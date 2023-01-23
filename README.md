@@ -4,13 +4,13 @@ This is a Django app that creates a form for tracking intermediaries, clients, t
 ## Getting Started
 To use this app, you will need to have a running Django project and a PostgreSQL database set up. This are the commands you should use in Ubuntu Linux.
 
-	- `sudo bash script_install_postgresql.sh`
-	- `sudo su postgres`
-	- `createuser admin`
-	- `createdb expedientes with owner admin`
-	- `python manage.py makemigrations`
-	- `python manage.py migrate`
-	- `python manage.py runserver 0.0.0.0:80`
+	- sudo bash script_install_postgresql.sh
+	- sudo su postgres
+	- createuser admin
+	- createdb expedientes with owner admin
+	- sudo python manage.py makemigrations
+	- sudo python manage.py migrate
+	- sudo python manage.py runserver 0.0.0.0:80
 
 Use the form in your templates to input and view data.
 ## Prerequisites
