@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'mgxl9e81hv+bqmj2!-+!9soz68m$ggdajra3d&7xgxa$owx!zx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -90,9 +90,9 @@ DATABASES = {
 
         'NAME': 'expedientes',
 
-        'USER': 'admin',
+        'USER': USER,
 
-        'PASSWORD': 'RiscValor331',
+        'PASSWORD': PASSWORD,
 
         'HOST': '0.0.0.0',
 
