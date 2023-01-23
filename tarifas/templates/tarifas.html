@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block head %}
+	<title>Formulario de tarifas </title>
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center display-4">Risc Valor</h1>
+			<p class="lead text-center">Plantilla para generar un nuevo tarifas</p>
+		</div>
+		<div class="row justify-content-center align-items-center">
+			<div class="col-sm-6 ">
+				<form id = "tarifasForm" method= "POST">{% csrf_token %}
+					{{ tarifasForm.as_p }}
+					<input type="submit" name="tarifas-submit" class="btn btn-primary" />
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#tarifasForm").submit(function(e){
+				e.preventDefault();
+				var serializedData = $(this).serialize();
+				$.ajax({
+					type : 'POST',
+					url :  "{% url 'tarifas_submit' %}",
+					data : serializedData,
+					success : function(response){
+						$("#tarifasForm")[0].reset();
+						console.log(response);
+					},
+					error : function(response){
+						console.log(response)
+					}
+				})
+			})
+		})
+	</script>
+{% endblock %}

@@ -1,0 +1,6 @@
+Django
+pytz
+django-tables2
+django-bootstrap3
+django-queryset-csv
+psycopg2-binary
