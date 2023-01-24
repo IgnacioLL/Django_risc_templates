@@ -4,6 +4,7 @@ from django.urls import path
 from encargo import views as encargo
 from prescriptor import views as prescriptor
 from clientes import views as cliente
+from elementos import views as elementos
 from tarifas import views as tarifas
 
 from django.urls import path
@@ -22,20 +23,25 @@ urlpatterns = [
     re_path(r'^download_excel', table_example.download_excel),
     # app_1
     #FBV
-    path('paso1', encargo.encargoPage),
-    path('paso1/ajax/encargo', encargo.postEncargo, name = 'encargo_submit'),
-    path('paso1/encargo_cbv', encargo.EncargoAjax.as_view(), name = 'encargo_submit_cbv'),
+    path('encargos', encargo.encargoPage),
+    path('encargos/ajax/encargo', encargo.postEncargo, name = 'encargo_submit'),
+    path('encargos/encargo_cbv', encargo.EncargoAjax.as_view(), name = 'encargo_submit_cbv'),
 
-    path('paso2', prescriptor.prescriptorPage),
-    path('paso2/ajax/prescriptor', prescriptor.postPrescriptor, name = 'prescriptor_submit'),
-    path('paso2/prescriptor_cbv', prescriptor.PrescriptorAjax.as_view(), name = 'prescriptor_submit_cbv'),
+    path('prescriptores', prescriptor.prescriptorPage),
+    path('prescriptores/ajax/prescriptor', prescriptor.postPrescriptor, name = 'prescriptor_submit'),
+    path('prescriptores/prescriptor_cbv', prescriptor.PrescriptorAjax.as_view(), name = 'prescriptor_submit_cbv'),
 
-    path('paso3', cliente.clientePage),
-    path('paso3/ajax/cliente', cliente.postCliente, name = 'cliente_submit'),
-    path('paso3/cliente_cbv', cliente.ClienteAjax.as_view(), name = 'cliente_submit_cbv'),
+    path('clientes', cliente.clientePage),
+    path('clientes/ajax/cliente', cliente.postCliente, name = 'cliente_submit'),
+    path('clientes/cliente_cbv', cliente.ClienteAjax.as_view(), name = 'cliente_submit_cbv'),
 
-    path('paso4', tarifas.tarifasPage),
-    path('paso4/ajax/tarifas', tarifas.posttarifas, name = 'tarifas_submit'),
-    path('paso4/tarifas_cbv', tarifas.tarifasAjax.as_view(), name = 'tarifas_submit_cbv'),
+    path('elementos', elementos.elementosPage),
+    path('elementos/ajax/elementos', elementos.postelementos, name = 'elementos_submit'),
+    path('elementos/elementos_cbv', elementos.elementosAjax.as_view(), name = 'elementos_submit_cbv'),
+
+
+    path('tarifas', tarifas.tarifasPage),
+    path('tarifas/ajax/tarifas', tarifas.posttarifas, name = 'tarifas_submit'),
+    path('tarifas/tarifas_cbv', tarifas.tarifasAjax.as_view(), name = 'tarifas_submit_cbv'),
 
 ]

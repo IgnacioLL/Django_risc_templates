@@ -2,9 +2,9 @@ from django import forms
 from .models import tarifas
 
 class tarifasForm(forms.ModelForm):
-	name = forms.CharField(label="Direccion y numero del inmueble", required = True)
-
-
+	name = forms.CharField(label="Nombre de la tarifa", required = True)
+	comision_de_la_tarifa = forms.FloatField(label="Comision de la tarifa (%)")
+ 
 	class Meta:
 		model = tarifas
 		exclude = ["timestamp", ]

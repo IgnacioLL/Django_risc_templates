@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block head %}
+	<title>Formulario de elementos </title>
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="text-center display-4">Risc Valor</h1>
+			<p class="lead text-center">Plantilla para generar un nuevo elementos</p>
+		</div>
+		<div class="row justify-content-center align-items-center">
+			<div class="col-sm-6 ">
+				<form id = "elementosForm" method= "POST">{% csrf_token %}
+					{{ elementosForm.as_p }}
+					<input type="submit" name="elementos-submit" class="btn btn-primary" />
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block script %}
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#elementosForm").submit(function(e){
+				e.preventDefault();
+				var serializedData = $(this).serialize();
+				$.ajax({
+					type : 'POST',
+					url :  "{% url 'elementos_submit' %}",
+					data : serializedData,
+					success : function(response){
+						$("#elementosForm")[0].reset();
+						console.log(response);
+					},
+					error : function(response){
+						console.log(response)
+					}
+				})
+			})
+		})
+	</script>
+{% endblock %}

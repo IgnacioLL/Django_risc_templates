@@ -1,6 +1,33 @@
 {% extends "base.html" %}
 {% block head %}
 	<title>Formulario de prescriptor </title>
+
+	
+	<style>
+		body {background-color: whitesmoke;}
+		.button1 {
+			 background-color: #FFA500;
+			 border: none;
+			 color: white;
+			 padding: 15px 25px;
+			 text-align: center;
+			 text-decoration: none;
+			 display: inline-block;
+			 font-size: 15px;
+			 margin: 30px 280px;
+			 cursor: pointer;}
+		.button2 {
+			 background-color: #008000;
+			 border: none;
+			 color: white;
+			 padding: 15px 25px;
+			 text-align: center;
+			 text-decoration: none;
+			 display: inline-block;
+			 font-size: 15px;
+			 margin: 30px 30px;
+			 cursor: pointer;}   	
+	 </style>
 {% endblock %}
 {% block style %}
 {% endblock %}
@@ -18,6 +45,8 @@
 				</form>
 			</div>
 		</div>
+		<a href="tarifas" class="button1"> Crear nuevo tipo de tarifa</a>
+
 	</div>
 {% endblock %}
 

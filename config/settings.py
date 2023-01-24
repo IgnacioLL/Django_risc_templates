@@ -39,11 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_tables2',
     'bootstrap3',
-    'table_example_con',
-    "encargo",
     "prescriptor",
     "clientes",
+    "encargo",
+    "elementos",
     "tarifas",
+    'table_example_con',
+
 
 ]
 
@@ -90,9 +92,9 @@ DATABASES = {
 
         'NAME': 'expedientes',
 
-        'USER': USER,
+        'USER': 'admin',
 
-        'PASSWORD': PASSWORD,
+        'PASSWORD': 'RiscValor331',
 
         'HOST': '0.0.0.0',
 

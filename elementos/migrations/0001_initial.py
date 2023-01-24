@@ -10,15 +10,15 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("tarifas", "0001_initial"),
+        ("encargo", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name="Prescriptor",
+            name="elementos",
             fields=[
                 (
-                    "id_prescriptor",
+                    "id_elementos",
                     models.UUIDField(
                         default=uuid.uuid1,
                         editable=False,
@@ -27,19 +27,21 @@ class Migration(migrations.Migration):
                     ),
                 ),
                 ("name", models.CharField(max_length=60)),
-                ("empresa", models.CharField(blank=True, max_length=50, null=True)),
-                ("telefono", models.CharField(blank=True, max_length=50, null=True)),
+                ("comision_prescriptor", models.IntegerField(blank=True, null=True)),
+                ("descuento_aplicar", models.FloatField(blank=True, null=True)),
+                ("valor_presupuestado", models.FloatField(blank=True, null=True)),
+                ("provision_de_fondos", models.FloatField(blank=True, null=True)),
+                ("importe_de_la_provision", models.FloatField(blank=True, null=True)),
                 (
-                    "correo_electronico",
-                    models.CharField(blank=True, max_length=50, null=True),
+                    "referencia_catastral",
+                    models.CharField(blank=True, max_length=80, null=True),
                 ),
-                ("movil", models.CharField(blank=True, max_length=50, null=True)),
                 (
-                    "id_elemento",
+                    "ID_encargo",
                     models.ForeignKey(
                         default="7b1f8f5a-7353-4683-b4ea-5c8e2c1f91bd",
                         on_delete=django.db.models.deletion.SET_DEFAULT,
-                        to="tarifas.tarifas",
+                        to="encargo.encargo",
                     ),
                 ),
             ],
